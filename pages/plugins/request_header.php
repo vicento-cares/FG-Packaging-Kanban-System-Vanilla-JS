@@ -23,14 +23,14 @@ function delete_recent_remarks_scanned($section, $conn) {
 
 if (!isset($_SESSION['id_no'])) {
   header('location:../');
-  exit;
+  exit();
 } else {
   $ip = $_SERVER['REMOTE_ADDR']; // Uncomment when deployed to production
   $section = check_ip_section($ip, $conn);
   if ($section == '') {
     // redirect to the restricted page
     header("location:error/no-access.html");
-    exit;
+    exit();
   } else {
     // Load Recent Scanned Kanban -- Page Load
     $request_id = load_recent_scanned($section, $_SESSION['id_no'], $conn);

@@ -7,14 +7,14 @@ require('../process/lib/main.php');
 
 if (!isset($_SESSION['id_no'])) {
   header('location:../');
-  exit;
+  exit();
 } else {
   $ip = $_SERVER['REMOTE_ADDR']; // Uncomment when deployed to production
   $section = check_ip_section($ip, $conn);
   if ($section == '') {
     // redirect to the restricted page
     header("location:error/no-access.html");
-    exit;
+    exit();
   } else {
     $_SESSION['section'] = $section;
   }
