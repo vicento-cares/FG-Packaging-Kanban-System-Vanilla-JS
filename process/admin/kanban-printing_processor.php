@@ -161,4 +161,3 @@ if ($method == 'count_kanban') {
 }
 
 $conn = null;
-?>
